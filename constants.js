@@ -47,3 +47,15 @@ export const navigationLinks = [
     link: "/contact",
   },
 ];
+
+export const nookTypes = [
+  {
+    key: 1,
+    name: "Meal",
+    description: "A meal or menu item that you really dig.",
+  },
+  { key: 2, name: "Restaurant", description: "" },
+  { key: 3, name: "Website", description: "" },
+  { key: 4, name: "Small business", description: "" },
+  { key: 5, name: "Area/place", description: "" },
+];
