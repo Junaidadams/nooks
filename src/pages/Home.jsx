@@ -29,12 +29,16 @@ const Home = () => {
       <section className="min-h-screen bg-space-cadet flex flex-col">
         <div className="w-3/4 lg:w-1/2 m-auto text-center rounded-lg text-ghost-white ">
           <motion.h1 className="text-4xl sm:text-5xl md:text-6xl text-periwinkle text font-black">
-            nook??
+            nook
           </motion.h1>
+          <motion.p className="font-semibold text-lg mt-4">[nuk] noun</motion.p>
           <motion.p className="font-semibold text-lg mt-4">
             A &quot;nook&quot; is a gem that you&apos;ve found that you feel a
             lot of people would like, or that they should experience. Where
             possible, we aim to make nooks small businesses to show support.
+          </motion.p>
+          <motion.p className="font-semibold text-lg mt-4">
+            We'd love to build a community of
           </motion.p>
         </div>
         <div className="w-3/4 lg:w-1/2 flex flex-col my-10 mx-auto">
@@ -51,7 +55,7 @@ const Home = () => {
             Get started
           </motion.h1>
           <motion.p className="font-semibold text-periwinkle text-lg mt-4">
-            Start discovering nooks straight away! <br /> Here's how:
+            Start discovering nooks straight away! <br /> Here&apos;s how:
           </motion.p>
         </div>
         <div className="w-3/4 lg:w-1/2 flex flex-col my-10 mx-auto">

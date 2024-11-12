@@ -8,8 +8,8 @@ export default {
           "0px 1px 2px 0px rgb(228 217 255 / var(--tw-bg-opacity))",
       },
       backgroundImage: {
-        "cloud-bg": "url('cloudbg.png')",
-        "cloud-bg-reversed": "url('cloudbg2.png')",
+        "cloud-bg": "url('/cloudbg.png')",
+        "cloud-bg-reversed": "url('/cloudbg2.png')",
       },
       animation: {
         "scroll-left-right-fast": "scroll-left-right 12s linear infinite",

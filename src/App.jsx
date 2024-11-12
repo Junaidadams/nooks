@@ -6,6 +6,7 @@ import Faq from "./pages/Faq";
 import About from "./pages/About";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
+import Registration from "./pages/Registration";
 
 import NoPage from "./pages/NoPage";
 
@@ -17,6 +18,7 @@ const App = () => {
       <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/services" element={<Services />} />
+      <Route path="/register" element={<Registration />} />
       <Route path="*" element={<NoPage />} />
     </Routes>
   );
