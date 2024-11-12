@@ -6,7 +6,7 @@ const { socials } = websiteInformation[0];
 const Footer = () => {
   return (
     <div className="flex ">
-      <ul className="my-auto ml-auto mr-6 p-4">
+      <ul className="my-auto ml-auto mr-6 p-4 capitalize">
         {navigationLinks.map((link) => (
           <li key={link.key}>
             <a href={link.link}>{link.name}</a>
