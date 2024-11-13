@@ -29,6 +29,7 @@ export const websiteInformation = [
       { key: 2, name: "Facebook", link: "/", logo: BsFacebook },
       { key: 3, name: "Instagram", link: "/", logo: BsInstagram },
       { key: 4, name: "Twitter", link: "/", logo: BsTwitterX },
+      { key: 5, name: "Yo", link: "/", logo: BsTwitterX },
     ],
   },
 ];
