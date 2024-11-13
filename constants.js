@@ -61,6 +61,43 @@ export const navigationLinks = [
     link: "/contact",
   },
 ];
+export const footerLinks = [
+  {
+    key: 1,
+    name: "home",
+    link: "/",
+  },
+  {
+    key: 2,
+    name: "about",
+    link: "/about",
+  },
+  {
+    key: 3,
+    name: "services",
+    link: "/services",
+  },
+  {
+    key: 4,
+    name: "FAQ",
+    link: "/faq",
+  },
+  {
+    key: 5,
+    name: "contact",
+    link: "/contact",
+  },
+  {
+    key: 6,
+    name: "terms and conditions",
+    link: "/terms-and-conditions",
+  },
+  {
+    key: 7,
+    name: "contact",
+    link: "/contact",
+  },
+];
 
 export const nookTypes = [
   {

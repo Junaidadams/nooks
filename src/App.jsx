@@ -8,6 +8,7 @@ import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 import Registration from "./pages/Registration";
 import Login from "./pages/Login";
+import TermsAndConditions from "./pages/T&C";
 
 import NoPage from "./pages/NoPage";
 
@@ -21,6 +22,7 @@ const App = () => {
       <Route path="/services" element={<Services />} />
       <Route path="/register" element={<Registration />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
       <Route path="*" element={<NoPage />} />
     </Routes>
   );

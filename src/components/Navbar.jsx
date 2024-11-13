@@ -28,17 +28,17 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="z-20 flex justify-between items-center min-w-screen backdrop-blur-[50px] bg-[#fafaff50] sticky top-0 min-h-[56px] px-4">
+    <div className="z-20 flex justify-between items-center min-w-screen sticky top-0 min-h-[56px] px-4">
       {/* Navigation Links */}
       {/* <a>
         <img src={logo} className="h-14 w-fit py-2" />
       </a> */}
-      <ul className="space-x-8 capitalize hidden md:flex flex-row py-4 mx-auto">
+      <ul className="space-x-8 capitalize hidden md:flex flex-row py-4 px-4 mx-auto bg-periwinkle rounded-full">
         {navigationLinks.map((link) => (
-          <li key={link.key}>
+          <li key={link.key} className="">
             <a
               href={link.link}
-              className="text-delft-blue hover:text-indigo-600 font-semibold"
+              className="text-space-cadet  py-2 px-3 rounded-full hover:text-indigo-600 font-semibold"
             >
               {link.name}
             </a>
