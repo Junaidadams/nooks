@@ -123,7 +123,7 @@ export const getStartedSteps = [
     key: 2,
     name: "Pick a nook (or don't)",
     description:
-      "Figure out which of your nooks you want to share. If you're here to browse you can skip the next step and go straight to viewing current nooks by area.",
+      "Figure out which of your nooks you want to share. If you're here to browse you can skip the next step and go straight to viewing current nooks by area, type or name.",
   },
   {
     key: 3,
