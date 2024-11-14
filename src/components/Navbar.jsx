@@ -44,7 +44,26 @@ const Navbar = () => {
             </a>
           </li>
         ))}
+        <li>
+          {" "}
+          <a
+            href="/login"
+            className="text-space-cadet  py-2 px-3 rounded-full hover:text-indigo-600 font-semibold"
+          >
+            Login
+          </a>
+        </li>
+        <li>
+          {" "}
+          <a
+            href="/register"
+            className="text-space-cadet  py-2 px-3 rounded-full hover:text-indigo-600 font-semibold"
+          >
+            Register
+          </a>
+        </li>
       </ul>
+      <div></div>
 
       {/* Toggle Button */}
       <div className="md:hidden ">
