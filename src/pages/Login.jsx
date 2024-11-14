@@ -1,8 +1,45 @@
+import { useState } from "react";
+import apiRequest from "../../lib/apiRequest";
+
+import SubmitButton from "../components/SubmitButton";
+
 const Login = () => {
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [complete, setComplete] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setComplete(false);
+    setIsLoading(true);
+
+    const formData = new FormData(e.target);
+    const email = formData.get("email");
+    const password = formData.get("password");
+
+    try {
+      const res = await apiRequest.post("/auth/login", {
+        email,
+        password,
+      });
+      setSuccess(true);
+    } catch (error) {
+      console.error(error.response?.data?.message || "An error has ocurred.");
+      setError("Login attempt failed" + " " + error.response?.data?.message);
+    } finally {
+      setIsLoading(false);
+      setComplete(true);
+    }
+  };
+
   return (
     <div className="flex min-h-screen -mt-[56px]  bg-space-cadet flex-col ">
       {" "}
-      <form className="max-w-md m-auto  rounded-md text-ghost-white p-10 sm:border-[1px] border-periwinkle w-full">
+      <form
+        onSubmit={handleSubmit}
+        className="max-w-md m-auto  rounded-md text-ghost-white p-10 sm:border-[1px] border-periwinkle w-full"
+      >
         <h1 className="text-2xl sm:text-3xl  text-periwinkle text font-black mb-6">
           Welcome back
         </h1>
@@ -43,12 +80,15 @@ const Login = () => {
           <a href="/"> don&apos;t have an account?</a>
         </div>
         <div className="">
-          <button
-            type="submit"
-            className="rounded-md font-semibold bg-ghost-white hover:bg-delft-blue hover:text-ghost-white hover:shadow-2xl text-delft-blue px-4 py-2 ml-auto w-full"
-          >
-            Submit
-          </button>
+          <SubmitButton
+            preSubmissionText="Log in"
+            postSubmissionText="Logged in"
+            isLoading={isLoading}
+            success={success}
+            error={error}
+            complete={complete}
+            reattempt={true}
+          />
         </div>
       </form>
     </div>
