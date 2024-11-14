@@ -10,6 +10,8 @@ import Registration from "./pages/Registration";
 import Login from "./pages/Login";
 import TermsAndConditions from "./pages/T&C";
 
+import VerifyEmail from "./pages/utilPages/VerifyEmail";
+
 import NoPage from "./pages/NoPage";
 
 const App = () => {
@@ -22,6 +24,7 @@ const App = () => {
       <Route path="/services" element={<Services />} />
       <Route path="/register" element={<Registration />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/verify-email" element={<VerifyEmail />} />
       <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
       <Route path="*" element={<NoPage />} />
     </Routes>
