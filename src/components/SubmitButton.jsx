@@ -1,7 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const SubmitButton = () => {
+const SubmitButton = ({
+  complete,
+  sucches,
+  isLoading,
+  error,
+  preSubmissionText,
+  postSubmissionText,
+  reattempt,
+}) => {
   return (
     <button
       type="submit"
@@ -12,6 +20,14 @@ const SubmitButton = () => {
   );
 };
 
-SubmitButton.propTypes = {};
+SubmitButton.propTypes = {
+  complete: PropTypes.bool.isRequired,
+  success: PropTypes.bool.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  error: PropTypes.string,
+  preSubmissionText: PropTypes.string.isRequired,
+  postSubmissionText: PropTypes.string.isRequired,
+  reattempt: PropTypes.bool,
+};
 
 export default SubmitButton;

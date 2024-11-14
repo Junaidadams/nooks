@@ -1,7 +1,7 @@
 const TermsAndConditions = () => {
   return (
     <div className="flex min-h-screen -mt-[56px] pt-[56px] text-ghost-white bg-gradient-to-b from-space-cadet to-delft-blue flex-col">
-      <div className="max-w-lg mx-auto rounded-md text-ghost-white p-10 sm:border-[1px] border-periwinkle w-full">
+      <div className="w-3/4 lg:w-1/2 mx-auto rounded-md text-ghost-white p-10  ">
         <h1 className="text-periwinkle font-black text-2xl sm:text-3xl">
           Terms and Conditions
         </h1>

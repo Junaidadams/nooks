@@ -1,8 +1,30 @@
+import apiRequest from "../../lib/apiRequest";
+
 const Registration = () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const email = formData.get("email");
+    const password = formData.get("password");
+    const username = formData.get("username");
+
+    try {
+      const res = await apiRequest.post("/auth/register", {
+        email,
+        password,
+        username,
+      });
+    } catch (error) {
+      console.error(error.response?.data?.message || "An error has occurred.");
+    }
+  };
   return (
     <div className="flex min-h-screen -mt-[56px]  bg-space-cadet flex-col ">
       {" "}
-      <form className="max-w-md m-auto  rounded-md text-ghost-white p-10 sm:border-[1px] border-periwinkle w-full">
+      <form
+        onSubmit={handleSubmit}
+        className="max-w-md m-auto  rounded-md text-ghost-white p-10 sm:border-[1px] border-periwinkle w-full"
+      >
         <h1 className="text-2xl sm:text-3xl  text-periwinkle text font-black mb-6">
           Register
         </h1>
