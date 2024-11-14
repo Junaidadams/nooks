@@ -1,8 +1,18 @@
 import apiRequest from "../../lib/apiRequest";
+import SubmitButton from "../components/SubmitButton";
+import { useState } from "react";
 
 const Registration = () => {
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [complete, setComplete] = useState(false);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setComplete(false);
+    setIsLoading(true);
+
     const formData = new FormData(e.target);
     const email = formData.get("email");
     const password = formData.get("password");
@@ -14,8 +24,17 @@ const Registration = () => {
         password,
         username,
       });
+      setSuccess(true);
     } catch (error) {
       console.error(error.response?.data?.message || "An error has occurred.");
+      setError(
+        "Failed to send registration request." +
+          " " +
+          error.response?.data?.message
+      );
+    } finally {
+      setIsLoading(false);
+      setComplete(true);
     }
   };
   return (
@@ -91,12 +110,21 @@ const Registration = () => {
           />
         </div>
         <div className="">
-          <button
+          <SubmitButton
+            preSubmissionText="Sign up"
+            postSubmissionText="Sent"
+            isLoading={isLoading}
+            success={success}
+            error={error}
+            complete={complete}
+            reattempt={true}
+          />
+          {/* <button
             type="submit"
             className="rounded-md font-semibold bg-ghost-white hover:bg-delft-blue hover:text-ghost-white hover:shadow-2xl text-delft-blue px-4 py-2 ml-auto w-full"
           >
             Submit
-          </button>
+          </button> */}
         </div>
       </form>
     </div>
