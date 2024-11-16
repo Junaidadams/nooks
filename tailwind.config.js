@@ -10,6 +10,7 @@ export default {
       backgroundImage: {
         "cloud-bg": "url('/cloudbg.png')",
         "cloud-bg-reversed": "url('/cloudbgreversed.png')",
+        "wave-texture": "url('/Wave Texture.png')",
       },
       animation: {
         "scroll-left-right-fast": "scroll-left-right 12s linear infinite",

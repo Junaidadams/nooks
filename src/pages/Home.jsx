@@ -28,7 +28,11 @@ const Home = () => {
         </div>
         <div className="w-full h-1/3 min-h-[100px] flex flex-col mt-auto bg-cloud-bg bg-repeat-x animate-scroll-left-right-fast md:animate-scroll-left-right-slow"></div>
       </section>
-      <section className="min-h-screen bg-space-cadet flex flex-col">
+      <section
+        name="about"
+        id="about"
+        className="min-h-screen bg-space-cadet flex flex-col"
+      >
         <div className="w-3/4 lg:w-1/2 m-auto text-center rounded-lg text-ghost-white ">
           <motion.h1 className="text-4xl sm:text-5xl md:text-6xl text-periwinkle text font-black">
             nook

@@ -15,6 +15,8 @@ import {
   MdAdd,
 } from "react-icons/md";
 
+import { AiOutlineMail, AiOutlinePhone } from "react-icons/ai";
+
 import logo from "./src/assets/logo.png";
 
 export const websiteInformation = [
@@ -34,6 +36,16 @@ export const websiteInformation = [
   },
 ];
 
+export const contactInformation = [
+  {
+    key: 1,
+    name: "E-mail",
+    address: "junaidadams117@gmail.com",
+    icon: AiOutlineMail,
+  },
+  { key: 2, name: "Call", address: "0826756350", icon: AiOutlinePhone },
+];
+
 export const navigationLinks = [
   {
     key: 1,
@@ -43,7 +55,7 @@ export const navigationLinks = [
   {
     key: 2,
     name: "about",
-    link: "/about",
+    link: "/#about",
   },
   {
     key: 3,
@@ -60,7 +72,7 @@ export const footerLinks = [
   {
     key: 2,
     name: "about",
-    link: "/about",
+    link: "#about",
   },
   {
     key: 3,
