@@ -46,6 +46,16 @@ export const contactInformation = [
   { key: 2, name: "Call", address: "0826756350", icon: AiOutlinePhone },
 ];
 
+export const operatingHours = [
+  { key: 1, day: "Monday", open: "08:00", closed: "17:00" },
+  { key: 2, day: "Tuesday", open: "08:00", closed: "17:00" },
+  { key: 3, day: "Wednesday", open: "08:00", closed: "17:00" },
+  { key: 4, day: "Thursday", open: "08:00", closed: "17:00" },
+  { key: 5, day: "Friday", open: "08:00", closed: "17:00" },
+  { key: 6, day: "Saturday", open: "10:00", closed: "14:00" },
+  { key: 7, day: "Sunday", open: "Closed", closed: "Closed" },
+];
+
 export const navigationLinks = [
   {
     key: 1,
@@ -63,6 +73,7 @@ export const navigationLinks = [
     link: "/contact",
   },
 ];
+
 export const footerLinks = [
   {
     key: 1,

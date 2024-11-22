@@ -8,6 +8,7 @@ import Contact from "./pages/Contact";
 import Registration from "./pages/Registration";
 import Login from "./pages/Login";
 import TermsAndConditions from "./pages/T&C";
+import Archive from "./pages/Archive";
 
 import VerifyEmail from "./pages/utilPages/VerifyEmail";
 
@@ -23,6 +24,7 @@ const App = () => {
       <Route path="/register" element={<Registration />} />
       <Route path="/login" element={<Login />} />
       <Route path="/verify-email" element={<VerifyEmail />} />
+      <Route path="/archive" element={<Archive />} />
       <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
       <Route path="*" element={<NoPage />} />
     </Routes>
