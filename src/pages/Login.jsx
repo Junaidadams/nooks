@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 import apiRequest from "../../lib/apiRequest";
 
 import SubmitButton from "../components/SubmitButton";
@@ -8,6 +10,9 @@ const Login = () => {
   const [success, setSuccess] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [complete, setComplete] = useState(false);
+  const navigate = useNavigate();
+
+  const { updateUser } = useContext(AuthContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -17,15 +22,21 @@ const Login = () => {
     const formData = new FormData(e.target);
     const email = formData.get("email");
     const password = formData.get("password");
+    // console.log(email, password);
 
     try {
       const res = await apiRequest.post("/auth/login", {
         email,
         password,
       });
+      const { token, ...userData } = res.data;
+
+      // Store the token in localStorage
+      localStorage.setItem("authToken", token);
+
       setSuccess(true);
     } catch (error) {
-      console.error(error.response?.data?.message || "An error has ocurred.");
+      console.error(error.response?.data?.message || "An error has occurred.");
       setError("Login attempt failed" + " " + error.response?.data?.message);
     } finally {
       setIsLoading(false);

@@ -63,7 +63,6 @@ const Navbar = () => {
           </a>
         </li>
       </ul>
-      <div></div>
 
       {/* Toggle Button */}
       <div className="md:hidden ">
