@@ -1,22 +1,32 @@
-import React from "react";
 import PropTypes from "prop-types";
 
 const Table = ({ operatingHours }) => {
   return (
-    <table className="w-full border-collapse  mt-4 mx-auto">
-      {/* <thead>
-        <tr className="">
-          <th className="  px-4 py-2 text-left">Day</th>
-          <th className="  px-4 py-2 text-left">Open</th>
-          <th className="  px-4 py-2 text-left">Close</th>
+    <table className="w-full border-collapse mt-4 mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
+      <thead>
+        <tr className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white">
+          <th className="px-6 py-3 text-left text-sm font-medium uppercase"></th>
+          <th className="px-6 py-3 text-left text-sm font-medium uppercase">
+            Open
+          </th>
+          <th className="px-6 py-3 text-left text-sm font-medium uppercase">
+            Close
+          </th>
         </tr>
-      </thead> */}
+      </thead>
       <tbody>
-        {operatingHours.map(({ key, day, open, closed }) => (
-          <tr key={key} className="even:bg-space-cadet-lighter">
-            <td className=" text-left px-4 py-3">{day}</td>
-            <td className=" text-left px-4 py-3">{open}</td>
-            <td className=" text-left px-4 py-3">{closed}</td>
+        {operatingHours.map(({ key, day, open, closed }, index) => (
+          <tr
+            key={key}
+            className={`${
+              index % 2 === 0 ? "bg-gray-50" : "bg-white"
+            } hover:bg-blue-50`}
+          >
+            <td className="px-6 py-4 text-left text-gray-700 font-medium">
+              {day}
+            </td>
+            <td className="px-6 py-4 text-left text-gray-700">{open}</td>
+            <td className="px-6 py-4 text-left text-gray-700">{closed}</td>
           </tr>
         ))}
       </tbody>

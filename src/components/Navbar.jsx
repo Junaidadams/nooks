@@ -1,8 +1,11 @@
 // Navbar.jsx
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { navigationLinks } from "../../constants";
 import Toggle from "./Toggle";
+
+import { AuthContext } from "../context/AuthContext";
+import { BsChevronDoubleDown } from "react-icons/bs";
 
 const variants = {
   open: (height = 1000) => ({
@@ -26,13 +29,14 @@ const variants = {
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [miniMenuIsOpen, setMiniMenuIsOpen] = useState(false);
+
+  const { currentUser } = useContext(AuthContext);
 
   return (
     <div className="z-20 flex justify-between items-center min-w-screen sticky top-0 min-h-[56px] px-4 backdrop-blur-lg">
       {/* Navigation Links */}
-      {/* <a>
-        <img src={logo} className="h-14 w-fit py-2" />
-      </a> */}
+
       <ul className="space-x-8 capitalize hidden md:flex flex-row p-2 mx-auto bg-periwinkle rounded-full">
         {navigationLinks.map((link) => (
           <li key={link.key} className="">
@@ -44,32 +48,58 @@ const Navbar = () => {
             </a>
           </li>
         ))}
-        <li>
-          {" "}
-          <a
-            href="/login"
-            className="text-space-cadet  py-2 px-3 rounded-full hover:text-indigo-600 font-semibold"
-          >
-            Login
-          </a>
-        </li>
-        <li>
-          {" "}
-          <a
-            href="/register"
-            className="text-space-cadet  py-2 px-3 rounded-full hover:text-indigo-600 font-semibold"
-          >
-            Register
-          </a>
-        </li>
+        {!currentUser ? (
+          <li>
+            {" "}
+            <a
+              href="/login"
+              className="text-space-cadet  py-2 px-3 rounded-full hover:text-indigo-600 font-semibold"
+            >
+              Login
+            </a>
+          </li>
+        ) : (
+          ""
+        )}
+        {!currentUser ? (
+          <li>
+            {" "}
+            <a
+              href="/register"
+              className="text-space-cadet  py-2 px-3 rounded-full hover:text-indigo-600 font-semibold"
+            >
+              Register
+            </a>
+          </li>
+        ) : (
+          ""
+        )}
       </ul>
 
+      {/* Signed in menu desktop */}
+
+      {currentUser ? (
+        <button
+          onClick={() => setMiniMenuIsOpen(!miniMenuIsOpen)}
+          className="hidden shadow-lg md:flex bg-space-cadet py-2 px-3 rounded-full"
+        >
+          <div className="my-auto mr-2">
+            <BsChevronDoubleDown color="#e4d9ff" />
+          </div>
+          <span className="text-periwinkle">Hi, {currentUser.username}</span>
+        </button>
+      ) : (
+        ""
+      )}
+
       {/* Toggle Button */}
+
       <div className="md:hidden ">
         <Toggle isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />
       </div>
 
       {/* Mobile Menu */}
+
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -78,7 +108,7 @@ const Navbar = () => {
             exit="closed"
             variants={variants}
             transition={{ duration: 0.5 }}
-            className="absolute top-0 left-0 w-full bg-delft-blue shadow-lg flex flex-col space-y-6 px-4 pt-2 pb-10 capitalize md:hidden "
+            className="absolute top-0 left-0 w-full bg-delft-blue shadow-lg flex flex-col space-y-6 px-4 pt-2 pb-10 capitalize md:hidden"
           >
             <div className="md:hidden ">
               <Toggle isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />
@@ -93,6 +123,29 @@ const Navbar = () => {
                 {link.name}
               </a>
             ))}
+            {currentUser ? (
+              <a
+                href="/profile"
+                className="text-ghost-white hover:text-periwinkle m-auto "
+              >
+                Profile
+              </a>
+            ) : (
+              <div className="m-auto flex space-y-6 flex-col">
+                <a
+                  href="/login"
+                  className="text-ghost-white hover:text-periwinkle m-auto "
+                >
+                  Login
+                </a>
+                <a
+                  href="/register"
+                  className="text-ghost-white hover:text-periwinkle m-auto "
+                >
+                  Register
+                </a>
+              </div>
+            )}
           </motion.div>
         )}
       </AnimatePresence>

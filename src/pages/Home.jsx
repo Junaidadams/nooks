@@ -17,7 +17,7 @@ const Home = () => {
         </div>
         <div className="w-full h-1/3 flex flex-col p-4 m-auto">
           <div className="w-3/4 m-auto text-center">
-            <img src={logo} className="m-auto" />
+            <img src={logo} className="m-auto shadow-lg mb-6" />
             <h1 className="mx-auto mt-auto font-black text-4xl sm:text-5xl md:text-6xl text-delft-blue">
               Find &apos;em share &apos;em <br /> learn about &apos;em
             </h1>
@@ -31,7 +31,7 @@ const Home = () => {
       <section
         name="about"
         id="about"
-        className="min-h-screen bg-space-cadet flex flex-col"
+        className=" bg-space-cadet flex flex-col"
       >
         <div className="w-3/4 lg:w-1/2 m-auto text-center rounded-lg text-ghost-white ">
           <motion.h1 className="text-4xl sm:text-5xl md:text-6xl text-periwinkle text font-black">
@@ -70,8 +70,8 @@ const Home = () => {
           <NookTypeDisplay />
         </div>
       </section>
-      <section className="min-h-screen bg-delft-blue flex flex-col">
-        <div className="w-full h-1/3 min-h-[100px] flex flex-col mb-auto bg-cloud-bg-reversed bg-repeat-x animate-scroll-left-right-fast md:animate-scroll-left-right-slow"></div>
+      <section className=" bg-delft-blue flex flex-col">
+        <div className="w-full h-1/3 min-h-[100px] flex flex-col  bg-cloud-bg-reversed bg-repeat-x animate-scroll-left-right-fast md:animate-scroll-left-right-slow"></div>
         <div className="w-3/4 lg:w-1/2 mx-auto text-center rounded-lg text-ghost-white ">
           <motion.h1 className="text-4xl sm:text-5xl md:text-6xl text-ghost-white text font-black">
             Get started

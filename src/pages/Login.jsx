@@ -22,7 +22,6 @@ const Login = () => {
     const formData = new FormData(e.target);
     const email = formData.get("email");
     const password = formData.get("password");
-    // console.log(email, password);
 
     try {
       const res = await apiRequest.post("/auth/login", {
@@ -30,11 +29,16 @@ const Login = () => {
         password,
       });
       const { token, ...userData } = res.data;
+      console.log(res.data);
 
       // Store the token in localStorage
       localStorage.setItem("authToken", token);
 
       setSuccess(true);
+      if (!userData.paid) {
+        updateUser(userData);
+        navigate("/");
+      }
     } catch (error) {
       console.error(error.response?.data?.message || "An error has occurred.");
       setError("Login attempt failed" + " " + error.response?.data?.message);
@@ -45,7 +49,7 @@ const Login = () => {
   };
 
   return (
-    <div className="flex min-h-screen -mt-[56px]  bg-space-cadet flex-col ">
+    <div className="flex min-h-screen -mt-[56px] bg-gradient-to-b from-space-cadet to-delft-blue flex-col ">
       {" "}
       <div className="bg-wave-texture min-h-screen flex flex-col w-full animate-scroll-left-right-fast md:animate-scroll-left-right-slow">
         <form
