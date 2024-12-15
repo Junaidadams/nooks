@@ -9,6 +9,7 @@ import Registration from "./pages/Registration";
 import Login from "./pages/Login";
 import TermsAndConditions from "./pages/T&C";
 import ProfilePage from "./pages/ProfilePage";
+import Logout from "./pages/Logout";
 
 import VerifyEmail from "./pages/utilPages/VerifyEmail";
 
@@ -30,6 +31,14 @@ const App = () => {
         element={
           <RequireAuth>
             <ProfilePage />
+          </RequireAuth>
+        }
+      />
+      <Route
+        path="/logout"
+        element={
+          <RequireAuth>
+            <Logout />
           </RequireAuth>
         }
       />

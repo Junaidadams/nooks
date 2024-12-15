@@ -1,7 +1,7 @@
 // Navbar.jsx
 import { useContext, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { navigationLinks } from "../../constants";
+import { navigationLinks, signedInNavLinks } from "../../constants";
 import Toggle from "./Toggle";
 
 import { AuthContext } from "../context/AuthContext";
@@ -79,15 +79,32 @@ const Navbar = () => {
       {/* Signed in menu desktop */}
 
       {currentUser ? (
-        <button
-          onClick={() => setMiniMenuIsOpen(!miniMenuIsOpen)}
-          className="hidden shadow-lg md:flex bg-space-cadet py-2 px-3 rounded-full"
-        >
-          <div className="my-auto mr-2">
-            <BsChevronDoubleDown color="#e4d9ff" />
+        <div className="z-20 hidden md:flex fixed flex-col mt-2">
+          <button
+            onClick={() => setMiniMenuIsOpen(!miniMenuIsOpen)}
+            className="shadow-lg bg-space-cadet py-2 px-3 rounded-full flex"
+          >
+            <div className="my-auto mr-2">
+              <BsChevronDoubleDown color="#e4d9ff" />
+            </div>
+            <span className="text-periwinkle">Hi, {currentUser.username}</span>
+          </button>
+          <div
+            className={`${
+              miniMenuIsOpen ? "flex" : "hidden"
+            } absolute mt-10 bg-white shadow-lg rounded-md flex-col`}
+          >
+            {signedInNavLinks.map((link) => (
+              <a
+                key={link.key}
+                href={link.link}
+                className="px-4 py-2 hover:bg-gray-100 capitalize"
+              >
+                {link.name}
+              </a>
+            ))}
           </div>
-          <span className="text-periwinkle">Hi, {currentUser.username}</span>
-        </button>
+        </div>
       ) : (
         ""
       )}

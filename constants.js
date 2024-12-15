@@ -74,6 +74,24 @@ export const navigationLinks = [
   },
 ];
 
+export const signedInNavLinks = [
+  {
+    key: 1,
+    name: "archive",
+    link: "/",
+  },
+  {
+    key: 2,
+    name: "profile",
+    link: "/profile-page",
+  },
+  {
+    key: 3,
+    name: "logout",
+    link: "/logout",
+  },
+];
+
 export const footerLinks = [
   {
     key: 1,
