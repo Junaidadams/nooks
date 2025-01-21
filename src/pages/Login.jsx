@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useState, useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import apiRequest from "../../lib/apiRequest";
@@ -56,7 +56,7 @@ const Login = () => {
           onSubmit={handleSubmit}
           className="max-w-md m-auto backdrop-blur-xl rounded-md text-ghost-white p-10 sm:border-[1px] border-periwinkle w-full"
         >
-          <h1 className="text-2xl sm:text-3xl  text-periwinkle text font-black mb-6">
+          <h1 className="text-3xl sm:text-3xl text-periwinkle text font-black mb-6">
             Welcome back
           </h1>
           <div className="my-4">
@@ -70,7 +70,7 @@ const Login = () => {
               name="email"
               type="email"
               id="email"
-              className="w-full p-2 bg-delft-blue border-b-[1px] border-periwinkle  focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 shadow-xl rounded-t-lg"
+              className="w-full p-2 bg-delft-blue border-b-[1px] border-periwinkle focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 shadow-xl rounded-t-lg"
               required
             />
           </div>
@@ -89,7 +89,8 @@ const Login = () => {
               required
             />
           </div>
-          <div className="mb-6 flex">
+          <div className="mb-6 sm:text-white flex flex-row">
+            <a href="/"> Forgot your password or don&apos;t have an account?</a>
             <a href="/"> Forgot your password or don&apos;t have an account?</a>
           </div>
           <div className="">

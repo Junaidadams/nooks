@@ -78,7 +78,7 @@ export const signedInNavLinks = [
   {
     key: 1,
     name: "archive",
-    link: "/",
+    link: "/archive",
   },
   {
     key: 2,

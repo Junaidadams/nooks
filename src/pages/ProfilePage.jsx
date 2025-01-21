@@ -8,20 +8,20 @@ const ProfilePage = () => {
   return (
     <div className="flex min-h-screen -mt-[56px] bg-delft-blue flex-col">
       <div className="w-3/4 lg:w-1/2 mt-20 m-auto text-center">
-        <div className="flex m-auto">
+        <div className="flex my-auto w-fit">
           <div
             className={`${
-              currentUser.premium
+              !currentUser.premium
                 ? "bg-gradient-to-tr from-amber-500 to-amber-200"
                 : "bg-periwinkle"
-            } rounded-full w-16 h-16 sm:h-20 sm:w-20 flex shadow-lg p-1`}
+            } rounded-full w-16 h-16 sm:h-20 sm:w-20 flex shadow-lg p-1 mr-4`}
           >
             <img
               src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSDz6yWvbQS0-tmNQjbMcOl11jXk38fj9xtWeMQVidumoj9Imn2ioRiYubBoTVUkAt-yUCjnJ2WU4_ZxexGo9QQxQkxJn0UoyAD-yAOIw"
-              className="rounded-full object-cover m-auto h-full w-full"
+              className="rounded-full object-cover h-full w-full"
             />
           </div>
-          <motion.h1 className="text-4xl sm:text-5xl md:text-6xl text-periwinkle font-black text-center my-auto grow">
+          <motion.h1 className={`text-4xl sm:text-5xl md:text-6xl text-periwinkle font-black text-center my-auto mr-auto`}>
             {currentUser.username}
           </motion.h1>
         </div>
