@@ -136,7 +136,7 @@ const Navbar = () => {
                   <a
                     key={link.key}
                     href={link.link}
-                    className="px-4 py-2 hover:bg-gray-100 capitalize text-ghost-white"
+                    className="px-4 py-2 hover:bg-delft-blue capitalize text-ghost-white"
                   >
                     {link.name}
                   </a>
