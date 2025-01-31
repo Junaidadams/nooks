@@ -1,17 +1,12 @@
-import {
-  BsFacebook,
-  BsLinkedin,
-  BsInstagram,
-  BsTwitterX,
-} from "react-icons/bs";
+import { BsInstagram, BsTwitterX } from "react-icons/bs";
 import {
   MdOutlineRestaurantMenu,
   MdFastfood,
-  MdWeb,
-  MdMap,
-  MdHouse,
-  MdMusicNote,
-  MdEvent,
+  MdLocalCafe,
+  MdBakeryDining,
+  MdLocalBar,
+  MdLocationOn,
+  MdStorefront,
   MdAdd,
 } from "react-icons/md";
 
@@ -27,11 +22,10 @@ export const websiteInformation = [
     developer: "Junaid Adams",
     logo: logo,
     socials: [
-      { key: 1, name: "Linked In", link: "/", logo: BsLinkedin },
-      { key: 2, name: "Facebook", link: "/", logo: BsFacebook },
+      // { key: 1, name: "Linked In", link: "/", logo: BsLinkedin },
+      // { key: 2, name: "Facebook", link: "/", logo: BsFacebook },
       { key: 3, name: "Instagram", link: "/", logo: BsInstagram },
       { key: 4, name: "Twitter", link: "/", logo: BsTwitterX },
-      { key: 5, name: "Yo", link: "/", logo: BsTwitterX },
     ],
   },
 ];
@@ -133,46 +127,46 @@ export const footerLinks = [
 export const nookTypes = [
   {
     key: 1,
-    name: "Meal",
-    description: "A meal or menu item that you really dig.",
-    icon: MdFastfood,
+    name: "Cafe",
+    description: "A cozy spot for coffee, tea, and good vibes.",
+    icon: MdLocalCafe,
   },
   {
     key: 2,
     name: "Restaurant",
-    description: "A go-to spot that serves up great food or unique vibes.",
+    description: "A go-to place for delicious meals and great ambiance.",
     icon: MdOutlineRestaurantMenu,
   },
   {
     key: 3,
-    name: "Website",
-    description: "An online space that brings you comfort or inspiration.",
-    icon: MdWeb,
+    name: "Bakery",
+    description:
+      "A bakery that serves fresh bread, pastries, and sweet treats.",
+    icon: MdBakeryDining,
   },
   {
     key: 4,
-    name: "Small business",
-    description: "A local business you love to support.",
-    icon: MdHouse,
+    name: "Takeout",
+    description: "A quick and tasty spot for food on the go.",
+    icon: MdFastfood,
   },
   {
     key: 5,
-    name: "Area/place",
-    description: "A location that feels like a special escape or retreat.",
-    icon: MdMap,
+    name: "Bar",
+    description: "A lively place to grab a drink and unwind.",
+    icon: MdLocalBar,
   },
   {
     key: 6,
-    name: "Music",
-    description: "A song, album, or playlist that soothes or energizes you.",
-    icon: MdMusicNote,
+    name: "Market",
+    description: "A local market where you find fresh produce or unique goods.",
+    icon: MdStorefront,
   },
   {
     key: 7,
-    name: "Local event",
-    description:
-      "An event or gathering that makes you feel part of a community.",
-    icon: MdEvent,
+    name: "Landmark",
+    description: "A notable place worth visiting in your area.",
+    icon: MdLocationOn,
   },
   {
     key: 8,

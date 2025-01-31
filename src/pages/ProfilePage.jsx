@@ -21,7 +21,9 @@ const ProfilePage = () => {
               className="rounded-full object-cover h-full w-full"
             />
           </div>
-          <motion.h1 className={`text-4xl sm:text-5xl md:text-6xl text-periwinkle font-black text-center my-auto mr-auto`}>
+          <motion.h1
+            className={`text-4xl sm:text-5xl md:text-6xl text-periwinkle font-black text-center my-auto mr-auto`}
+          >
             {currentUser.username}
           </motion.h1>
         </div>
@@ -30,13 +32,19 @@ const ProfilePage = () => {
             <h2 className="text-lg font-semibold">Username</h2>
             <p className="">{currentUser.username}</p>
           </div>
-          <div className="p-4 rounded-md bg-mainWhite">
+          <div className="p-4 rounded-md bg-mainWhite bg-space-cadet">
             <h2 className="text-lg font-semibold">Email</h2>
             <p className="">{currentUser.email}</p>
           </div>
-          <div className="p-4 rounded-md bg-mainWhite">
+          <div className="p-4 rounded-md bg-mainWhite bg-space-cadet">
             <h2 className="text-lg font-semibold">Premium Status</h2>
             <p className="">{currentUser.premium ? "Yes" : "No"}</p>
+          </div>
+          <div className="p-4 rounded-md bg-mainWhite bg-space-cadet">
+            <h2 className="text-lg font-semibold">Nooks</h2>
+            <p className="">Nook 1</p>
+            <p className="">Nook 1</p>
+            <p className="">Nook 1</p>
           </div>
         </div>
       </div>

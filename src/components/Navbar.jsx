@@ -5,7 +5,7 @@ import { navigationLinks, signedInNavLinks } from "../../constants";
 import Toggle from "./Toggle";
 
 import { AuthContext } from "../context/AuthContext";
-import { BsChevronDoubleDown } from "react-icons/bs";
+import { BsChevronDoubleDown, BsChevronDoubleUp } from "react-icons/bs";
 
 const variants = {
   open: (height = 1000) => ({
@@ -18,6 +18,28 @@ const variants = {
   }),
   closed: {
     clipPath: "circle(30px at 40px 40px)",
+    transition: {
+      delay: 0.01,
+      type: "spring",
+      stiffness: 400,
+      damping: 40,
+    },
+  },
+};
+
+const miniMenuVariants = {
+  open: (height = 200) => ({
+    height,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      stiffness: 20,
+      restDelta: 2,
+    },
+  }),
+  closed: {
+    height: 0,
+    opacity: 0,
     transition: {
       delay: 0.01,
       type: "spring",
@@ -89,21 +111,39 @@ const Navbar = () => {
             </div>
             <span className="text-periwinkle">Hi, {currentUser.username}</span>
           </button>
-          <div
-            className={`${
-              miniMenuIsOpen ? "flex" : "hidden"
-            } absolute mt-10 bg-white shadow-lg rounded-md flex-col`}
-          >
-            {signedInNavLinks.map((link) => (
-              <a
-                key={link.key}
-                href={link.link}
-                className="px-4 py-2 hover:bg-gray-100 capitalize"
+          <AnimatePresence>
+            {miniMenuIsOpen && (
+              <motion.div
+                initial="closed"
+                animate="open"
+                exit="closed"
+                variants={variants}
+                transition={{ duration: 0.5 }}
+                className="absolute  bg-space-cadet shadow-lg rounded-t-3xl rounded-b-md flex-col flex"
               >
-                {link.name}
-              </a>
-            ))}
-          </div>
+                <button
+                  onClick={() => setMiniMenuIsOpen(!miniMenuIsOpen)}
+                  className="py-2 px-3 rounded-full flex"
+                >
+                  <div className="my-auto mr-2">
+                    <BsChevronDoubleUp color="#e4d9ff" />
+                  </div>
+                  <span className="text-periwinkle">
+                    Hi, {currentUser.username}
+                  </span>
+                </button>
+                {signedInNavLinks.map((link) => (
+                  <a
+                    key={link.key}
+                    href={link.link}
+                    className="px-4 py-2 hover:bg-gray-100 capitalize text-ghost-white"
+                  >
+                    {link.name}
+                  </a>
+                ))}
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       ) : (
         ""
@@ -142,7 +182,7 @@ const Navbar = () => {
             ))}
             {currentUser ? (
               <a
-                href="/profile"
+                href="/profile-page"
                 className="text-ghost-white hover:text-periwinkle m-auto "
               >
                 Profile
