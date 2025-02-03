@@ -12,11 +12,15 @@ const NewNook = () => {
     e.preventDefault();
     setComplete(false);
     setIsLoading(true);
+    setError("");
 
     const formData = new FormData(e.target);
 
     try {
-      const res = await apiRequest.post("/auth/register", { email });
+      const res = await apiRequest.post(
+        "/nooks/create",
+        Object.fromEntries(formData)
+      );
       setSuccess(true);
     } catch (error) {
       console.error(error.response?.data?.message || "An error has occurred");
@@ -28,24 +32,115 @@ const NewNook = () => {
   };
 
   return (
-    <div className="flex min-h-screen bg-periwinkle -mt-[56px] bg- flex-col ">
-      {" "}
+    <div className="flex min-h-screen bg-gradient-to-b from-space-cadet to-delft-blue -mt-[56px] flex-col p-6">
       <form
         onSubmit={handleSubmit}
-        className="max-w-md m-auto bg-black bg-opacity-5 rounded-md text-ghost-white p-10 sm:border-[1px] border-space-cadet w-full "
+        className="max-w-lg mx-auto bg-space-cadet text-ghost-white p-8 rounded-xl shadow-lg border border-periwinkle"
       >
-        {" "}
-        <div className="">
-          <SubmitButton
-            preSubmissionText="Create nook"
-            postSubmissionText="Nook created"
-            isLoading={isLoading}
-            success={success}
-            error={error}
-            complete={complete}
-            reattempt={true}
+        <h2 className="text-2xl font-bold text-center mb-6">
+          Create a New Nook
+        </h2>
+
+        {/* Name */}
+        <div className="mb-4">
+          <label className="block text-lg font-semibold mb-1" htmlFor="name">
+            Name
+          </label>
+          <input
+            name="name"
+            type="text"
+            id="name"
+            className="w-full p-3 rounded-lg bg-delft-blue border border-periwinkle focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            required
           />
-        </div>{" "}
+        </div>
+
+        {/* Type */}
+        <div className="mb-4">
+          <label className="block text-lg font-semibold mb-1" htmlFor="type">
+            Type
+          </label>
+          <input
+            name="type"
+            type="text"
+            id="type"
+            className="w-full p-3 rounded-lg bg-delft-blue border border-periwinkle focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            required
+          />
+        </div>
+
+        {/* Image URL */}
+        <div className="mb-4">
+          <label className="block text-lg font-semibold mb-1" htmlFor="image">
+            Image URL
+          </label>
+          <input
+            name="image"
+            type="url"
+            id="image"
+            className="w-full p-3 rounded-lg bg-delft-blue border border-periwinkle focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+
+        {/* Location */}
+        <div className="mb-4">
+          <label
+            className="block text-lg font-semibold mb-1"
+            htmlFor="location"
+          >
+            Location
+          </label>
+          <input
+            name="location"
+            type="text"
+            id="location"
+            className="w-full p-3 rounded-lg bg-delft-blue border border-periwinkle focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            required
+          />
+        </div>
+
+        {/* Contact Info */}
+        <div className="mb-4">
+          <label
+            className="block text-lg font-semibold mb-1"
+            htmlFor="contactInfo"
+          >
+            Contact Info
+          </label>
+          <input
+            name="contactInfo"
+            type="text"
+            id="contactInfo"
+            className="w-full p-3 rounded-lg bg-delft-blue border border-periwinkle focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+
+        {/* Description */}
+        <div className="mb-6">
+          <label
+            className="block text-lg font-semibold mb-1"
+            htmlFor="description"
+          >
+            Description
+          </label>
+          <textarea
+            name="description"
+            id="description"
+            rows="4"
+            className="w-full p-3 rounded-lg bg-delft-blue border border-periwinkle focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          ></textarea>
+        </div>
+
+        {/* Submit Button */}
+        <SubmitButton
+          preSubmissionText="Create Nook"
+          postSubmissionText="Nook Created"
+          isLoading={isLoading}
+          success={success}
+          error={error}
+          complete={complete}
+          reattempt={true}
+        />
       </form>
     </div>
   );
