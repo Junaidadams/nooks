@@ -201,3 +201,44 @@ export const getStartedSteps = [
       "That's pretty much all there is to it. Enjoy sharing and discovering.",
   },
 ];
+
+export const nookTags = [
+  // Atmosphere
+  { label: "Cozy", icon: "🛋️" },
+  { label: "Lively", icon: "🎉" },
+  { label: "Romantic", icon: "💖" },
+  { label: "Scenic View", icon: "🌅" },
+  { label: "Hidden Gem", icon: "🔍" },
+  { label: "Quiet", icon: "🤫" },
+  { label: "Retro Vibes", icon: "📻" },
+
+  // Amenities
+  { label: "Free Wi-Fi", icon: "📶" },
+  { label: "Outdoor Seating", icon: "☀️" },
+  { label: "Pet Friendly", icon: "🐶" },
+  { label: "Wheelchair Accessible", icon: "♿" },
+  { label: "Live Music", icon: "🎶" },
+  { label: "Board Games", icon: "🎲" },
+  { label: "Kid Friendly", icon: "🧒" },
+  { label: "Late Night Spot", icon: "🌙" },
+
+  // Food & Drink
+  { label: "Vegan Friendly", icon: "🌱" },
+  { label: "Vegetarian Options", icon: "🥗" },
+  { label: "Gluten-Free Options", icon: "🚫🌾" },
+  { label: "Organic Ingredients", icon: "🍃" },
+  { label: "Craft Coffee", icon: "☕" },
+  { label: "Specialty Cocktails", icon: "🍸" },
+  { label: "Local Ingredients", icon: "🏡" },
+  { label: "Artisan Bakery", icon: "🥐" },
+  { label: "Street Food", icon: "🌮" },
+  { label: "Farm-to-Table", icon: "🚜" },
+
+  // Community & Culture
+  { label: "Woman-Owned", icon: "👩‍💼" },
+  { label: "Black-Owned", icon: "✊🏾" },
+  { label: "LGBTQ+ Friendly", icon: "🏳️‍🌈" },
+  { label: "Student Discounts", icon: "🎓" },
+  { label: "Local Favorite", icon: "🏆" },
+  { label: "Instagram-Worthy", icon: "📸" },
+];

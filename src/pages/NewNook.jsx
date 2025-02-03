@@ -1,6 +1,7 @@
 import { useState } from "react";
 import apiRequest from "../../lib/apiRequest";
 import SubmitButton from "../components/SubmitButton";
+import { nookTags } from "../../constants";
 
 const NewNook = () => {
   const [error, setError] = useState("");
@@ -30,6 +31,7 @@ const NewNook = () => {
       setComplete(true);
     }
   };
+  const [selectedTag, setSelectedTag] = useState("");
 
   return (
     <div className="flex min-h-screen bg-gradient-to-b from-space-cadet to-delft-blue -mt-[56px] flex-col p-6">
@@ -116,6 +118,7 @@ const NewNook = () => {
         </div>
 
         {/* Description */}
+
         <div className="mb-6">
           <label
             className="block text-lg font-semibold mb-1"
@@ -130,7 +133,29 @@ const NewNook = () => {
             className="w-full p-3 rounded-lg bg-delft-blue border border-periwinkle focus:outline-none focus:ring-2 focus:ring-indigo-500"
           ></textarea>
         </div>
-
+        <div className="mb-6">
+          {/* Dropdown for Tags */}
+          <label
+            className="block text-lg font-semibold mt-4 mb-1"
+            htmlFor="tags"
+          >
+            Select a Tag
+          </label>
+          <select
+            id="tags"
+            name="tags"
+            value={selectedTag}
+            onChange={(e) => setSelectedTag(e.target.value)}
+            className="w-full p-3 rounded-lg bg-delft-blue border border-periwinkle focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          >
+            <option value="">Choose a Tag</option>
+            {nookTags.map((tag) => (
+              <option key={tag.label} value={tag.label}>
+                {tag.icon} {tag.label}
+              </option>
+            ))}
+          </select>
+        </div>
         {/* Submit Button */}
         <SubmitButton
           preSubmissionText="Create Nook"
