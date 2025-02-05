@@ -81,6 +81,16 @@ export const signedInNavLinks = [
   },
   {
     key: 3,
+    name: "my nooks",
+    link: "/my-nooks",
+  },
+  {
+    key: 4,
+    name: "new nook",
+    link: "/new-nook",
+  },
+  {
+    key: 5,
     name: "logout",
     link: "/logout",
   },

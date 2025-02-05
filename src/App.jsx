@@ -13,10 +13,11 @@ import Logout from "./pages/Logout";
 import Archive from "./pages/Archive";
 
 import VerifyEmail from "./pages/utilPages/VerifyEmail";
-
 import NoPage from "./pages/NoPage";
 import RequireAuth from "./pages/wrapper/Wrapper";
+
 import NewNook from "./pages/NewNook";
+import MyNooks from "./pages/MyNooks";
 
 const App = () => {
   return (
@@ -57,6 +58,14 @@ const App = () => {
         element={
           <RequireAuth>
             <NewNook />
+          </RequireAuth>
+        }
+      />
+      <Route
+        path="/my-nooks"
+        element={
+          <RequireAuth>
+            <MyNooks />
           </RequireAuth>
         }
       />

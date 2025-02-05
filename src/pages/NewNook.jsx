@@ -1,7 +1,7 @@
 import { useState } from "react";
 import apiRequest from "../../lib/apiRequest";
 import SubmitButton from "../components/SubmitButton";
-import { nookTags } from "../../constants";
+import { nookTags, nookTypes } from "../../constants";
 
 const NewNook = () => {
   const [error, setError] = useState("");
@@ -37,7 +37,7 @@ const NewNook = () => {
     <div className="flex min-h-screen bg-gradient-to-b from-space-cadet to-delft-blue -mt-[56px] flex-col p-6">
       <form
         onSubmit={handleSubmit}
-        className="max-w-lg mx-auto bg-space-cadet text-ghost-white p-8 rounded-xl shadow-lg border border-periwinkle"
+        className="mx-auto bg-space-cadet text-ghost-white p-8 rounded-xl shadow-lg border border-periwinkle"
       >
         <h2 className="text-2xl font-bold text-center mb-6">
           Create a New Nook
@@ -62,13 +62,20 @@ const NewNook = () => {
           <label className="block text-lg font-semibold mb-1" htmlFor="type">
             Type
           </label>
-          <input
-            name="type"
-            type="text"
-            id="type"
+          <select
+            id="types"
+            name="types"
+            value={selectedTag}
+            onChange={(e) => setSelectedTag(e.target.value)}
             className="w-full p-3 rounded-lg bg-delft-blue border border-periwinkle focus:outline-none focus:ring-2 focus:ring-indigo-500"
-            required
-          />
+          >
+            <option value="">Choose a Tag</option>
+            {nookTypes.map((type) => (
+              <option key={type.name} value={type.name}>
+                {type.name}
+              </option>
+            ))}
+          </select>
         </div>
 
         {/* Image URL */}

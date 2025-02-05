@@ -27,27 +27,27 @@ const variants = {
   },
 };
 
-const miniMenuVariants = {
-  open: (height = 200) => ({
-    height,
-    opacity: 1,
-    transition: {
-      type: "spring",
-      stiffness: 20,
-      restDelta: 2,
-    },
-  }),
-  closed: {
-    height: 0,
-    opacity: 0,
-    transition: {
-      delay: 0.01,
-      type: "spring",
-      stiffness: 400,
-      damping: 40,
-    },
-  },
-};
+// const miniMenuVariants = {
+//   open: (height = 200) => ({
+//     height,
+//     opacity: 1,
+//     transition: {
+//       type: "spring",
+//       stiffness: 20,
+//       restDelta: 2,
+//     },
+//   }),
+//   closed: {
+//     height: 0,
+//     opacity: 0,
+//     transition: {
+//       delay: 0.01,
+//       type: "spring",
+//       stiffness: 400,
+//       damping: 40,
+//     },
+//   },
+// };
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
