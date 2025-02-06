@@ -8,6 +8,10 @@ const NewNook = () => {
   const [success, setSuccess] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [complete, setComplete] = useState(false);
+  const [selectedTag, setSelectedTag] = useState("");
+  const [branches, setBranches] = useState([
+    { location: "", name: "", contactNumber: "" },
+  ]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -16,6 +20,7 @@ const NewNook = () => {
     setError("");
 
     const formData = new FormData(e.target);
+    formData.append("branches", JSON.stringify(branches));
 
     try {
       const res = await apiRequest.post(
@@ -31,7 +36,16 @@ const NewNook = () => {
       setComplete(true);
     }
   };
-  const [selectedTag, setSelectedTag] = useState("");
+
+  const handleBranchChange = (index, field, value) => {
+    const updatedBranches = [...branches];
+    updatedBranches[index][field] = value;
+    setBranches(updatedBranches);
+  };
+
+  const addBranch = () => {
+    setBranches([...branches, { location: "", name: "", contactNumber: "" }]);
+  };
 
   return (
     <div className="flex min-h-screen bg-gradient-to-b from-space-cadet to-delft-blue -mt-[56px] flex-col p-6">
@@ -70,13 +84,55 @@ const NewNook = () => {
             className="w-full p-3 rounded-lg bg-delft-blue border border-periwinkle focus:outline-none focus:ring-2 focus:ring-indigo-500"
           >
             <option value="">Choose a Tag</option>
-            {nookTypes.map((type) => (
-              <option key={type.name} value={type.name}>
-                {type.name}
+            {nookTypes.map(({ key, name, icon: Icon }) => (
+              <option key={name} value={name}>
+                <Icon />
+                {name}
               </option>
             ))}
           </select>
         </div>
+
+        {/* Branches */}
+        {branches.map((branch, index) => (
+          <div key={index} className="mb-4 border p-4 rounded-lg bg-delft-blue">
+            <h3 className="text-lg font-semibold mb-2">Branch {index + 1}</h3>
+            <input
+              type="text"
+              placeholder="Branch Name"
+              value={branch.name}
+              onChange={(e) =>
+                handleBranchChange(index, "name", e.target.value)
+              }
+              className="w-full p-2 mb-2 rounded bg-space-cadet border border-periwinkle"
+            />
+            <input
+              type="text"
+              placeholder="Location"
+              value={branch.location}
+              onChange={(e) =>
+                handleBranchChange(index, "location", e.target.value)
+              }
+              className="w-full p-2 mb-2 rounded bg-space-cadet border border-periwinkle"
+            />
+            <input
+              type="text"
+              placeholder="Contact Number"
+              value={branch.contactNumber}
+              onChange={(e) =>
+                handleBranchChange(index, "contactNumber", e.target.value)
+              }
+              className="w-full p-2 mb-2 rounded bg-space-cadet border border-periwinkle"
+            />
+          </div>
+        ))}
+        <button
+          type="button"
+          onClick={addBranch}
+          className="w-full p-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700"
+        >
+          + Add Branch
+        </button>
 
         {/* Image URL */}
         <div className="mb-4">

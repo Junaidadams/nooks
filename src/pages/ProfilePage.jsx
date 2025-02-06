@@ -31,9 +31,9 @@ const ProfilePage = () => {
               <p className="text-ghost-white font-thin">Profile view</p>
             </div>
           </div>
-          <div>
+          <div className="sm:my-auto sm:ml-auto">
             <button className="bg-periwinkle px-2 py-1 rounded-md">
-              submit
+              Change
             </button>
           </div>
         </div>
