@@ -3,15 +3,39 @@ import apiRequest from "../../lib/apiRequest";
 import SubmitButton from "../components/SubmitButton";
 import { nookTags, nookTypes } from "../../constants";
 
+import Select from "react-select";
+
 const NewNook = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [complete, setComplete] = useState(false);
   const [selectedTag, setSelectedTag] = useState("");
+  const [selectedType, setSelectedType] = useState(null);
+
   const [branches, setBranches] = useState([
     { location: "", name: "", contactNumber: "" },
   ]);
+
+  const nookTypeOptions = nookTypes.map(({ name, icon: Icon }) => ({
+    value: name,
+    label: (
+      <div className="flex items-center gap-2">
+        <Icon color="#E4D9FF" />
+        {name}
+      </div>
+    ),
+  }));
+
+  const nookTagOptions = nookTags.map(({ label, icon: Icon }) => ({
+    value: label,
+    label: (
+      <div className="flex items-center gap-2">
+        <Icon color="#E4D9FF" />
+        {label}
+      </div>
+    ),
+  }));
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -76,21 +100,40 @@ const NewNook = () => {
           <label className="block text-lg font-semibold mb-1" htmlFor="type">
             Type
           </label>
-          <select
-            id="types"
-            name="types"
-            value={selectedTag}
-            onChange={(e) => setSelectedTag(e.target.value)}
-            className="w-full p-3 rounded-lg bg-delft-blue border border-periwinkle focus:outline-none focus:ring-2 focus:ring-indigo-500"
-          >
-            <option value="">Choose a Tag</option>
-            {nookTypes.map(({ key, name, icon: Icon }) => (
-              <option key={name} value={name}>
-                <Icon />
-                {name}
-              </option>
-            ))}
-          </select>
+          <Select
+            id="type"
+            name="type"
+            options={nookTypeOptions}
+            value={nookTypeOptions.find(
+              (option) => option.value === selectedType
+            )}
+            onChange={(selectedOption) =>
+              setSelectedType(selectedOption?.value)
+            }
+            className="basic-single"
+            classNamePrefix="select"
+            styles={{
+              control: (base) => ({
+                ...base,
+                backgroundColor: "#1E2A47",
+                borderColor: "#A9A2FF",
+                color: "#E4D9FF",
+              }),
+              singleValue: (base) => ({
+                ...base,
+                color: "#E4D9FF",
+              }),
+              menu: (base) => ({
+                ...base,
+                backgroundColor: "#1E2A47",
+              }),
+              option: (base, { isFocused }) => ({
+                ...base,
+                backgroundColor: isFocused ? "#3C4F76" : "#1E2A47",
+                color: "#E4D9FF",
+              }),
+            }}
+          />
         </div>
 
         {/* Branches */}
@@ -197,27 +240,44 @@ const NewNook = () => {
           ></textarea>
         </div>
         <div className="mb-6">
-          {/* Dropdown for Tags */}
           <label
             className="block text-lg font-semibold mt-4 mb-1"
             htmlFor="tags"
           >
             Select a Tag
           </label>
-          <select
+          <Select
             id="tags"
             name="tags"
-            value={selectedTag}
-            onChange={(e) => setSelectedTag(e.target.value)}
-            className="w-full p-3 rounded-lg bg-delft-blue border border-periwinkle focus:outline-none focus:ring-2 focus:ring-indigo-500"
-          >
-            <option value="">Choose a Tag</option>
-            {nookTags.map((tag) => (
-              <option key={tag.label} value={tag.label}>
-                {tag.icon} {tag.label}
-              </option>
-            ))}
-          </select>
+            options={nookTagOptions}
+            value={nookTagOptions.find(
+              (option) => option.value === selectedTag
+            )}
+            onChange={(selectedOption) => setSelectedTag(selectedOption?.value)}
+            className="basic-single"
+            classNamePrefix="select"
+            styles={{
+              control: (base) => ({
+                ...base,
+                backgroundColor: "#1E2A47",
+                borderColor: "#A9A2FF",
+                color: "#E4D9FF",
+              }),
+              singleValue: (base) => ({
+                ...base,
+                color: "#E4D9FF",
+              }),
+              menu: (base) => ({
+                ...base,
+                backgroundColor: "#1E2A47",
+              }),
+              option: (base, { isFocused }) => ({
+                ...base,
+                backgroundColor: isFocused ? "#3C4F76" : "#1E2A47",
+                color: "#E4D9FF",
+              }),
+            }}
+          />
         </div>
         {/* Submit Button */}
         <SubmitButton
