@@ -17,7 +17,6 @@ import NoPage from "./pages/NoPage";
 import RequireAuth from "./pages/wrapper/Wrapper";
 
 import NewNook from "./pages/NewNook";
-import MyNooks from "./pages/MyNooks";
 
 const App = () => {
   return (
@@ -61,14 +60,7 @@ const App = () => {
           </RequireAuth>
         }
       />
-      <Route
-        path="/my-nooks"
-        element={
-          <RequireAuth>
-            <MyNooks />
-          </RequireAuth>
-        }
-      />
+
       <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
       <Route path="*" element={<NoPage />} />
     </Routes>

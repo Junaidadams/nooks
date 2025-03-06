@@ -43,14 +43,15 @@ const NewNook = () => {
     setIsLoading(true);
     setError("");
 
+    // Convert FormData to a JSON object
     const formData = new FormData(e.target);
-    formData.append("branches", JSON.stringify(branches));
+    const data = Object.fromEntries(formData.entries());
+
+    // Append branches separately as a JSON object
+    data.branches = branches;
 
     try {
-      const res = await apiRequest.post(
-        "/nooks/create",
-        Object.fromEntries(formData)
-      );
+      const res = await apiRequest.post("/nooks/new-nook", data);
       setSuccess(true);
     } catch (error) {
       console.error(error.response?.data?.message || "An error has occurred");

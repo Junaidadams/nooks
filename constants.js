@@ -76,7 +76,7 @@ export const contactInformation = [
   {
     key: 1,
     name: "E-mail",
-    address: "junaidadams117@gmail.com",
+    address: "hello@nooks.co.za",
     icon: AiOutlineMail,
   },
   { key: 2, name: "Call", address: "0826756350", icon: AiOutlinePhone },
@@ -120,11 +120,6 @@ export const signedInNavLinks = [
     key: 2,
     name: "profile",
     link: "/profile-page",
-  },
-  {
-    key: 3,
-    name: "my nooks",
-    link: "/my-nooks",
   },
   {
     key: 4,
