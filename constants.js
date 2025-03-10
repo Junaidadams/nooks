@@ -8,6 +8,17 @@ import {
   MdLocationOn,
   MdStorefront,
   MdAdd,
+  MdStars,
+  MdFavorite,
+  MdDiamond,
+  MdPublic,
+  MdAccessTime,
+  MdBrush,
+  MdVisibility,
+  MdChat,
+  MdOutlineAutoAwesome,
+  MdFormatPaint,
+  MdCelebration,
 } from "react-icons/md";
 
 import {
@@ -288,4 +299,48 @@ export const nookTags = [
   { label: "Student Discounts", icon: FaGraduationCap },
   { label: "Local Favorite", icon: FaTrophy },
   { label: "Instagram-Worthy", icon: FaCamera },
+];
+
+export const membershipInformation = [
+  {
+    tier: "Free",
+    price: "Free",
+    icon: MdPublic,
+    benefits: [
+      { text: "Full access to the platform", icon: MdPublic },
+      { text: "Create and share listings", icon: MdStars },
+      { text: "Engage with the community", icon: MdChat },
+    ],
+  },
+  {
+    tier: "Supporter",
+    price: "$5/month",
+    icon: MdFavorite,
+    benefits: [
+      { text: "Premium profile border", icon: MdStars },
+      { text: "Supporter badge next to username", icon: MdFavorite },
+      { text: "Early access to new features", icon: MdAccessTime },
+      { text: "Custom profile themes", icon: MdBrush },
+      { text: "Increased visibility for posts/listings", icon: MdVisibility },
+      { text: "Access to exclusive community chat", icon: MdChat },
+    ],
+  },
+  {
+    tier: "Patron",
+    price: "$10/month",
+    icon: MdDiamond,
+    benefits: [
+      { text: "All Supporter benefits", icon: MdStars },
+      { text: "Animated profile border", icon: MdOutlineAutoAwesome },
+      { text: "Custom profile flair/title", icon: MdBrush },
+      {
+        text: "Recognition on a 'Thank You' page or newsletter",
+        icon: MdCelebration,
+      },
+      {
+        text: "More personalization options (fonts, themes, icons)",
+        icon: MdFormatPaint,
+      },
+    ],
+  },
 ];

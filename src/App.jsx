@@ -11,6 +11,7 @@ import TermsAndConditions from "./pages/T&C";
 import ProfilePage from "./pages/ProfilePage";
 import Logout from "./pages/Logout";
 import Archive from "./pages/Archive";
+import Memberships from "./pages/Memberships";
 
 import VerifyEmail from "./pages/utilPages/VerifyEmail";
 import NoPage from "./pages/NoPage";
@@ -28,6 +29,7 @@ const App = () => {
       <Route path="/register" element={<Registration />} />
       <Route path="/login" element={<Login />} />
       <Route path="/verify-email" element={<VerifyEmail />} />
+      <Route path="/memberships" element={<Memberships />} />
       <Route
         path="/profile-page"
         element={
