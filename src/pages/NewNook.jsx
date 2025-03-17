@@ -76,7 +76,7 @@ const NewNook = () => {
     <div className="flex min-h-screen bg-gradient-to-b from-space-cadet to-delft-blue -mt-[56px] flex-col p-6">
       <form
         onSubmit={handleSubmit}
-        className="mx-auto bg-space-cadet text-ghost-white p-8 rounded-xl shadow-lg border border-periwinkle"
+        className="m-auto my-40 bg-space-cadet text-ghost-white p-8 rounded-xl shadow-lg border border-periwinkle"
       >
         <h2 className="text-2xl font-bold text-center mb-6">
           Create a New Nook

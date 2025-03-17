@@ -8,6 +8,7 @@ import Contact from "./pages/Contact";
 import Registration from "./pages/Registration";
 import Login from "./pages/Login";
 import TermsAndConditions from "./pages/T&C";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 import ProfilePage from "./pages/ProfilePage";
 import Logout from "./pages/Logout";
 import Archive from "./pages/Archive";
@@ -30,6 +31,11 @@ const App = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/verify-email" element={<VerifyEmail />} />
       <Route path="/memberships" element={<Memberships />} />
+      <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+      <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+      <Route path="*" element={<NoPage />} />
+
+      {/* Protected Routes */}
       <Route
         path="/profile-page"
         element={
@@ -62,9 +68,6 @@ const App = () => {
           </RequireAuth>
         }
       />
-
-      <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
-      <Route path="*" element={<NoPage />} />
     </Routes>
   );
 };
