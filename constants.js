@@ -177,8 +177,8 @@ export const footerLinks = [
   },
   {
     key: 7,
-    name: "contact",
-    link: "/contact",
+    name: "privacy policy",
+    link: "/privacy-policy",
   },
 ];
 
