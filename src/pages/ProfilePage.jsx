@@ -6,6 +6,7 @@ import apiRequest from "../../lib/apiRequest";
 
 import SubmitButton from "../components/SubmitButton";
 import { HiOutlineBadgeCheck } from "react-icons/hi";
+import IconBorder from "../components/IconBorder";
 
 const ProfilePage = () => {
   const { currentUser, updateUser } = useContext(AuthContext);
@@ -54,41 +55,11 @@ const ProfilePage = () => {
       <div className="w-3/4 lg:w-1/2 mt-20 m-auto text-center">
         <div className="flex flex-col sm:flex-row my-auto bg-space-cadet p-4 rounded-md">
           <div className="flex">
-            <div
-              className={`relative ${
-                currentUser.premium
-                  ? "bg-gradient-to-tr from-amber-500 to-amber-200"
-                  : "bg-periwinkle"
-              } rounded-full w-16 h-16 sm:h-20 sm:w-20 flex shadow-lg p-1 mr-4`}
-            >
-              <img
-                src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSDz6yWvbQS0-tmNQjbMcOl11jXk38fj9xtWeMQVidumoj9Imn2ioRiYubBoTVUkAt-yUCjnJ2WU4_ZxexGo9QQxQkxJn0UoyAD-yAOIw"
-                className="rounded-full object-cover h-full w-full"
-              />
-              <div
-                className="relative"
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
-              >
-                <HiOutlineBadgeCheck
-                  color="#E4D9FF"
-                  className="h-6 w-6 sm:h-8 sm:w-8 z-10 absolute bottom-0 right-0 transform bg-space-cadet p-0 rounded-full"
-                />
-                <AnimatePresence>
-                  {isHovered && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 5 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 5 }}
-                      className="absolute bottom-10 right-0 bg-gray-800 text-white text-xs px-2 py-1 rounded-md shadow-md whitespace-nowrap"
-                    >
-                      Verified
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            </div>
-
+            <IconBorder
+              premium={currentUser.premium}
+              verified={currentUser.verified}
+              img={currentUser.avatar}
+            />
             <div className="my-auto text-left">
               <motion.h1 className="text-xl sm:text-2xl md:text-3xl text-periwinkle font-black">
                 {formData.username}
@@ -166,12 +137,41 @@ const ProfilePage = () => {
             <>
               <div className="p-4 rounded-md bg-space-cadet">
                 <h2 className="text-lg font-semibold">Bio</h2>
-                <p>{formData.bio || "Add a bio..."}</p>
+                <p>{currentUser.bio || "Add a bio..."}</p>
               </div>
               <div className="p-4 rounded-md bg-space-cadet">
                 <h2 className="text-lg font-semibold">Email</h2>
-                <p>{formData.email}</p>
+                <p>{currentUser.email}</p>
               </div>
+              {currentUser.nooks ? (
+                <div className="p-4 rounded-md bg-space-cadet">
+                  <h2 className="text-lg font-semibold">nooks</h2>
+                  <p>{currentUser.nooks}</p>
+                </div>
+              ) : (
+                <div className="p-4 rounded-md bg-space-cadet">
+                  <h2 className="text-lg font-semibold">Nooks</h2>
+                  <p>
+                    You do not currently have any nooks listed{" "}
+                    <a href="/new-nook">list one here</a>
+                  </p>
+                </div>
+              )}
+              {currentUser.reviews ? (
+                <div className="p-4 rounded-md bg-space-cadet">
+                  <h2 className="text-lg font-semibold">reviews</h2>
+                  <p>{currentUser.reviews}</p>
+                </div>
+              ) : (
+                <div className="p-4 rounded-md bg-space-cadet">
+                  <h2 className="text-lg font-semibold">Reviews</h2>
+                  <p>
+                    You do not currently have any reviews listed{" "}
+                    <a href="/new-nook">list one here</a>
+                  </p>
+                </div>
+              )}
+
               <div className="p-4 rounded-md bg-space-cadet">
                 <h6 className="text-lg font-semibold">Premium</h6>
                 <p className="w-full p-2 mt-1 bg-gray-800 rounded-md text-white">
